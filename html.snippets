@@ -1,14 +1,16 @@
 # ajax
-snippet ajax "ajax" b
+snippet ajax-get "ajax-get" b
 
-$.ajax({
-  type: 'POST',
-  data: JSON.stringify( ${1:data} ),
-  contentType: 'application/json; charset=UTF-8',
-  url: '/${2:url}',
-  success: function(data) {
-    ${3:command}
-  }
+$.get('${1:url}', function(data) {
+  ${2:console.log(data);}
+});
+
+endsnippet
+
+snippet ajax-post "ajax-post" b
+
+$.post('${1:url}', JSON.stringify(data), function(data) {
+  ${2:console.log(data);}
 });
 
 endsnippet
@@ -72,3 +74,18 @@ snippet bstable "bootstrap table" b
 
 endsnippet
 
+# blog template
+snippet bloghtml "blog html" b
+{% extends 'article_base.html' %}
+{% block title %}
+${1:title}
+{% endblock %}
+
+{% block keywords %}
+${2:keywords}
+{% endblock %}
+
+{% block body %}
+${3:body}
+{% endblock %}
+endsnippet

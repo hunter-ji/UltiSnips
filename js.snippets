@@ -1,0 +1,38 @@
+# ajax
+snippet ajax-get "ajax-get" b
+
+$.get('${1:url}', function(data) {
+  ${2:console.log(data);}
+});
+
+endsnippet
+
+snippet ajax-post "ajax-post" b
+
+$.post('${1:url}', JSON.stringify(data), function(data) {
+  ${2:console.log(data);}
+});
+
+endsnippet
+
+# webpack
+snippet webpack-config "webpack-config" b
+
+const path = require('path')
+
+module.exports = {
+    entry: path.join(__dirname, '${1:./src/main.js}'),
+    output: {
+	path: path.join(__dirname, '${2:./dist}'),
+	filename: '${3:bundle.js}'
+    }
+}
+
+endsnippet
+
+# webpack-dev-server
+snippet webpack-dev-server "webpack-dev-server" b
+
+webpack-dev-server --open --port ${1:3000} --contentBase src --hot
+
+endsnippet

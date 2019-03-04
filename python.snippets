@@ -4,3 +4,9 @@ with open( ${1:file}, ${2:a} ) as f:
     f.write( ${3:data} )
 
 endsnippet
+
+snippet flask-ajax "flask-ajax" b
+
+data = json.loads(request.get_data())
+
+endsnippet
