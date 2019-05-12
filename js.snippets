@@ -36,3 +36,34 @@ snippet webpack-dev-server "webpack-dev-server" b
 webpack-dev-server --open --port ${1:3000} --contentBase src --hot
 
 endsnippet
+
+# vue main.js
+snippet main.js "main.js" b
+
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import App from './App.vue'
+
+import VueRouter from 'vue-router'
+
+import Uploads from './components/Uploads.vue'
+
+Vue.config.productionTip = false
+
+Vue.use(ElementUI)
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+    routes: [
+        { path: '/', component: Uploads }
+    ]
+})
+
+
+new Vue({
+    router,
+    render: h => h(App),
+}).$mount('#app')
+
+endsnippet
